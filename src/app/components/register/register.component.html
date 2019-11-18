@@ -1,0 +1,36 @@
+<div class="container-fluid"
+     style="background-image: url('../../../assets/img/main_image.jpg'); background-size: 100% ;text-align: -webkit-center">
+  <p class="h2 font-weight-bold">Register</p>
+  <div class="w-50 border border-dark mt-3 mb-5 bg-light" style="border-radius: 20px">
+    <form class="m-2" [formGroup]="registerForm">
+      <div class="form-group form-inline">
+        <label for="email">Insert your email: </label>
+        <input class="form-control ml-3 w-50" type="text" id="email" placeholder="Email" formControlName="email">
+      </div>
+      <div class="form-group form-inline">
+        <label for="password">Insert your password: </label>
+        <input class="form-control ml-3 w-50" type="text" id="password" placeholder="Password"
+               formControlName="password">
+      </div>
+      <div class="alert alert-danger mt-2" *ngIf="email.invalid && (email.dirty || email.touched)">
+        <div *ngIf="email.errors.required">
+          *Observation: Email is required.*
+        </div>
+        <div *ngIf="email.errors.email">
+          *Observation: Email format is wrong.*
+        </div>
+        <div *ngIf="email.errors.emailExists">
+          *Observation: Email already exists, try another.*
+        </div>
+      </div>
+      <div class="alert alert-danger mt-2" *ngIf="password.invalid && (password.dirty || password.touched)">
+        <div *ngIf="password.errors.required">
+          *Observation: Password is required.*
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="registerForm.invalid" (click)="register()">Sign up</button>
+    </form>
+    <div *ngIf="alert" class="alert alert-danger">{{ alert }}</div>
+  </div>
+  <br>
+</div>

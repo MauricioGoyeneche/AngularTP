@@ -1,0 +1,19 @@
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+<div class="container">
+  <div class="text-center">
+    <table class="table">
+      <thead>
+      <tr>
+        <th scope="col"><a (click)="order('productId')"><i class="fa fa-sort"></i> #</a></th>
+        <th scope="col"><a (click)="order('name')"><i class="fa fa-sort"></i> Name</a></th>
+        <th scope="col"><a (click)="order('description')"><i class="fa fa-sort"></i> Description</a></th>
+      </tr>
+      </thead>
+      <tbody>
+        <tr app-list-item *ngFor="let product of productList" [product]=product></tr>
+      </tbody>
+    </table>
+    <app-paginator (pageEvent)='changePage($event)'></app-paginator>
+    <a class="btn btn-success" [routerLink]="['/logout']">Log Out</a>
+  </div>
+</div>
