@@ -1,1 +1,19 @@
-<p>page-not-found works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="error-template">
+        <p class="h1">
+          Oops!</p>
+        <p class="h2">
+          404 Not Found</p>
+        <div class="error-details">
+          Sorry, an error has occured, Requested page not found!
+        </div>
+        <div class="error-actions">
+          <a class="btn btn-primary btn-lg" [routerLink]="['/login']">
+            Take Me Home </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
